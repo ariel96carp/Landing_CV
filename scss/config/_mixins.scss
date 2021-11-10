@@ -1,0 +1,72 @@
+@mixin media-quarie($breakpoint){
+    @if map-has-key($breakpoints, $breakpoint){
+        @media screen and (min-width: px-to-rem(map-get($breakpoints, $breakpoint))){
+            @content;
+        }
+    }
+    @else if type-of($breakpoint) == number{
+        @if unit($breakpoint) == "px" or unit($breakpoint) == "rem" or unit($breakpoint) == "em"{
+            @if unit($breakpoint) == "px"{
+                @media screen and (min-width: px-to-rem($breakpoint)){
+                    @content;
+                }
+            }
+            @else{
+                @media screen and (min-width: $breakpoint){
+                    @content;
+                }
+            }
+        }
+        @else
+        {
+            @error "La unidad ingresada debe ser `px`, `rem` o `em`.";
+        }
+    } 
+    @else{
+        @error "EL valor ingresado no corresponde a un número."
+    }
+};
+
+@mixin fluid-typography($min-width, $max-width, $min-font, $max-font){
+    font-size: #{$min-font};
+
+    @include media-quarie($min-width){
+        font-size: calc(#{$min-font} + (#{strip-unit($max-font - $min-font)}) * ((100vw - #{breakpoint-finder($min-width)}) / #{strip-unit(breakpoint-finder($max-width) - breakpoint-finder($min-width))}))
+    }
+
+    @include media-quarie($max-width){
+        font-size: #{$max-font};
+    }
+};
+
+@mixin loader-border($percentage, $border-size){
+    @if type-of($percentage) == number and unitless($percentage){
+        @if $percentage == 25 or $percentage == 50 or $percentage == 75 or $percentage == 100{
+            $loader-border: $border-size solid map-get($colors, loader-color);
+            @if $percentage == 25{
+                border-top: $loader-border
+            }
+            @else if $percentage == 50{
+                border-top: $loader-border;
+                border-right: $loader-border;
+            }
+            @else if $percentage == 75{
+                border-top: $loader-border;
+                border-right: $loader-border;
+                border-bottom: $loader-border;
+            }
+            @else{
+                border-top: $loader-border;
+                border-right: $loader-border;
+                border-bottom: $loader-border;
+                border-left: $loader-border;
+            }
+        }
+        @else{
+            @error "El valor ingresado debe ser `25`, `50`, `75` o `100`.";
+        }
+    }
+    @else{
+        @error "El valor ingresado no corresponde a un número o tiene unidad.";
+    }
+}

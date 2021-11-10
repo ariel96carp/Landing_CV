@@ -1,0 +1,204 @@
+// SECCION "SOBRE MI"
+.about-me{
+    color: white;
+    background-color: map-get($colors, primary-color);
+
+    .wrapper{
+        height: 100%;
+    }
+
+    a{
+        color: white;
+        font-family: var(--regular-font);
+    }
+
+    .image{
+        &::before{
+            background-image: url(../../img/documento.png);
+        }
+    }
+}
+
+// SECCION "FORMACION"
+.course{
+    padding: .5em;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+
+    &:nth-of-type(-n+6){
+        margin-bottom: 1em;
+    }
+
+    p{
+        &:first-child{
+            color: map-get($colors, primary-color);
+            font-family: var(--bold-font);
+        }
+
+        &:last-of-type{
+            padding: .5em .75em;
+            color: white;
+            background-color: map-get($colors, primary-color);
+            width: fit-content;
+            font-family: var(--regular-font);
+        }
+    }
+
+    @include media-quarie(large){
+        padding: 1em;
+    }
+
+    a{
+        text-decoration: underline;
+        color: map-get($colors, primary-color);
+    }
+}
+
+// SECCION "HABILIDADES"
+.skills{
+    color: white;
+    background-color: map-get($colors, primary-color);
+}
+
+.skill{
+    width: fit-content;
+    font-family: var(--regular-font);
+    opacity: 0;
+    transform: translateX(-150%);
+
+    .level{
+        --size: 5rem;
+        --border-size: 3px;
+        width: var(--size);
+        height: var(--size);
+        border: var(--border-size) solid white;
+        border-radius: 50%;
+        transform: rotate(45deg);
+
+        @include media-quarie(medium){
+            --size: 7rem;
+        }
+
+        @include media-quarie(large){
+            --size: 9rem;
+        }
+    }
+
+    @for $i from 1 through 8{
+        &:nth-of-type(#{$i}){
+            .level{
+                @if $i >= 1 and $i <= 4{
+                    @include loader-border(75, var(--border-size));
+                }
+                @else if $i == 5 or $i == 7{
+                    @include loader-border(25, var(--border-size));
+                }
+                @else{
+                    @include loader-border(50, var(--border-size));
+                }
+            }
+        }
+    }   
+
+    &.show-skill{
+        opacity: 1;
+        transform: translateX(0);
+
+        @for $i from 1 through 8{
+            &:nth-of-type(#{$i}){
+                @if $i == 1{
+                    transition: opacity 1s, transform 1s;
+                }
+                @else{
+                    transition: opacity 1s #{$i / 4}s, transform 1s #{$i / 4}s;
+                }
+            }
+        }
+    }
+
+    &:nth-of-type(-n+6){
+        margin-bottom: 1rem;
+
+        @include media-quarie(medium){
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+// SECCION "CONTACTO"
+.contact{
+    color: white;
+    background-color: map-get($colors, secondary-color);
+
+    h2{
+        margin: 0;
+    }
+
+    a{
+        color: hsl(200, 53%, 48%);
+        text-decoration: underline;
+    }
+}
+
+.title{
+    --title-margin: .5rem;
+
+    p{
+        &:first-of-type{
+            font-family: var(--bold-font);
+            margin-bottom: 0;
+        }
+
+        &:nth-of-type(2){
+            margin-top: var(--title-margin);
+        }
+        
+    }
+
+    &:nth-of-type(-n+4){
+        margin-bottom: 1.5rem;
+
+        @include media-quarie(medium){
+            margin-bottom: 2rem;
+        }
+
+        @include media-quarie(large){
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    &:last-of-type{
+        p{
+            &:first-of-type{
+                margin-bottom: var(--title-margin);
+            }
+        }
+    }
+}
+
+@each $class in email, number, address{
+    .#{$class} .image{
+        &::before{
+            @if $class == "email"{
+                background-image: url(../../img/nuevo-sobre-de-correo-electronico.png);
+            }
+            @else if $class == "number"{
+                background-image: url(../../img/llamada-telefonica.png);
+            }
+            @else{
+                background-image: url(../../img/direccion.png);
+            }
+        }
+    }
+}
+
+.media-logos{
+    display: flex;
+    gap: .5rem;
+
+    img{
+        width: 2em;
+    }
+}
+
+

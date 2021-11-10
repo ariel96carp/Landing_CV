@@ -1,0 +1,11 @@
+footer{
+    color: white;
+    background-color: map-get($colors, header-color);
+    padding: 1em 0;
+
+    p{
+        width: fit-content;
+        margin: 0;
+        margin-left: auto;
+    }
+}
