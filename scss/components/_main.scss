@@ -84,13 +84,15 @@
         }
     }
 
-    @for $i from 1 through 8{
+    $level: 9; // HABILIDADES (CIRCULOS) 
+
+    @for $i from 1 through $level{
         &:nth-of-type(#{$i}){
             .level{
-                @if $i >= 1 and $i <= 4{
+                @if $i >= 1 and $i <= 5{
                     @include loader-border(75, var(--border-size));
                 }
-                @else if $i == 5 or $i == 7{
+                @else if $i == 6 or $i == 8{
                     @include loader-border(25, var(--border-size));
                 }
                 @else{
@@ -104,7 +106,7 @@
         opacity: 1;
         transform: translateX(0);
 
-        @for $i from 1 through 8{
+        @for $i from 1 through $level{
             &:nth-of-type(#{$i}){
                 @if $i == 1{
                     transition: opacity 1s, transform 1s;
@@ -155,7 +157,7 @@
         
     }
 
-    &:nth-of-type(-n+4){
+    &:nth-of-type(-n+5){
         margin-bottom: 1.5rem;
 
         @include media-quarie(medium){

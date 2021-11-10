@@ -368,6 +368,18 @@ header .wrapper {
   height: 100%;
 }
 
+header::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  filter: blur(5px);
+}
+
 .nav {
   display: flex;
   justify-content: center;
@@ -583,18 +595,24 @@ header .wrapper {
 
 .skill:nth-of-type(5) .level {
   border-top: var(--border-size) solid #03e2e2;
+  border-right: var(--border-size) solid #03e2e2;
+  border-bottom: var(--border-size) solid #03e2e2;
 }
 
 .skill:nth-of-type(6) .level {
   border-top: var(--border-size) solid #03e2e2;
-  border-right: var(--border-size) solid #03e2e2;
 }
 
 .skill:nth-of-type(7) .level {
   border-top: var(--border-size) solid #03e2e2;
+  border-right: var(--border-size) solid #03e2e2;
 }
 
 .skill:nth-of-type(8) .level {
+  border-top: var(--border-size) solid #03e2e2;
+}
+
+.skill:nth-of-type(9) .level {
   border-top: var(--border-size) solid #03e2e2;
   border-right: var(--border-size) solid #03e2e2;
 }
@@ -636,6 +654,10 @@ header .wrapper {
   transition: opacity 1s 2s, transform 1s 2s;
 }
 
+.skill.show-skill:nth-of-type(9) {
+  transition: opacity 1s 2.25s, transform 1s 2.25s;
+}
+
 .skill:nth-of-type(-n+6) {
   margin-bottom: 1rem;
 }
@@ -673,18 +695,18 @@ header .wrapper {
   margin-top: var(--title-margin);
 }
 
-.title:nth-of-type(-n+4) {
+.title:nth-of-type(-n+5) {
   margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 40rem) {
-  .title:nth-of-type(-n+4) {
+  .title:nth-of-type(-n+5) {
     margin-bottom: 2rem;
   }
 }
 
 @media screen and (min-width: 64rem) {
-  .title:nth-of-type(-n+4) {
+  .title:nth-of-type(-n+5) {
     margin-bottom: 2.5rem;
   }
 }
