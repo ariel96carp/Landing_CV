@@ -42,7 +42,7 @@ $colors:(
     font-style: normal;
     font-weight: 400;
     font-display: fallback;
-    src: local("open-sans-regular"), local("open-sans"), url(../../fonts/OpenSans-Regular.ttf);
+    src: local("open-sans-regular"), local("open-sans"), url(../fonts/OpenSans-Regular.ttf);
 }
 
 @font-face{
@@ -50,7 +50,7 @@ $colors:(
     font-style: bold;
     font-weight: 300;
     font-display: fallback;
-    src: local("open-sans-light"), url(../../fonts/OpenSans-Light.ttf);
+    src: local("open-sans-light"), url(../fonts/OpenSans-Light.ttf);
 }
 
 @font-face{
@@ -58,7 +58,7 @@ $colors:(
     font-style: bold;
     font-weight: 700;
     font-display: fallback;
-    src: local("open-sans-bold"), url(../../fonts/OpenSans-Bold.ttf);
+    src: local("open-sans-bold"), url(../fonts/OpenSans-Bold.ttf);
 }
 
 :root{

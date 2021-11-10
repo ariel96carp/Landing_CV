@@ -14,7 +14,7 @@
 
     .image{
         &::before{
-            background-image: url(../../img/documento.png);
+            background-image: url(../img/documento.png);
         }
     }
 }
@@ -40,6 +40,7 @@
             color: white;
             background-color: map-get($colors, primary-color);
             width: fit-content;
+            width: -moz-fit-content;
             font-family: var(--regular-font);
         }
     }
@@ -182,13 +183,13 @@
     .#{$class} .image{
         &::before{
             @if $class == "email"{
-                background-image: url(../../img/nuevo-sobre-de-correo-electronico.png);
+                background-image: url(../img/nuevo-sobre-de-correo-electronico.png);
             }
             @else if $class == "number"{
-                background-image: url(../../img/llamada-telefonica.png);
+                background-image: url(../img/llamada-telefonica.png);
             }
             @else{
-                background-image: url(../../img/direccion.png);
+                background-image: url(../img/direccion.png);
             }
         }
     }

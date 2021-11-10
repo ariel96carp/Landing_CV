@@ -21,7 +21,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
-  src: local("open-sans-regular"), local("open-sans"), url(../../fonts/OpenSans-Regular.ttf);
+  src: local("open-sans-regular"), local("open-sans"), url(../fonts/OpenSans-Regular.ttf);
 }
 
 @font-face {
@@ -29,7 +29,7 @@
   font-style: bold;
   font-weight: 300;
   font-display: fallback;
-  src: local("open-sans-light"), url(../../fonts/OpenSans-Light.ttf);
+  src: local("open-sans-light"), url(../fonts/OpenSans-Light.ttf);
 }
 
 @font-face {
@@ -37,7 +37,7 @@
   font-style: bold;
   font-weight: 700;
   font-display: fallback;
-  src: local("open-sans-bold"), url(../../fonts/OpenSans-Bold.ttf);
+  src: local("open-sans-bold"), url(../fonts/OpenSans-Bold.ttf);
 }
 
 :root {
@@ -322,18 +322,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 hr {
-  margin: 2rem 0;
+  margin: 2rem auto;
+  width: 90%;
 }
 
 @media screen and (min-width: 40rem) {
   hr {
-    margin: 3rem 0;
+    margin: 3rem auto;
   }
 }
 
 @media screen and (min-width: 64rem) {
   hr {
-    margin: 4rem 0;
+    margin: 4rem auto;
   }
 }
 
@@ -397,15 +398,15 @@ header::before {
 }
 
 .menu .item:first-child::before {
-  background-image: url(../../img/gente.png);
+  background-image: url(../img/gente.png);
 }
 
 .menu .item:nth-child(2)::before {
-  background-image: url(../../img/informacion.png);
+  background-image: url(../img/informacion.png);
 }
 
 .menu .item:nth-child(3)::before {
-  background-image: url(../../img/contacto.png);
+  background-image: url(../img/contacto.png);
 }
 
 .menu .link {
@@ -415,7 +416,7 @@ header::before {
 
 .main-banner {
   height: 14rem;
-  background: url(../../img/cursos-en-computacion-e-informatica.jpg) #21364f no-repeat center/cover;
+  background: url(../img/cursos-en-computacion-e-informatica.jpg) #21364f no-repeat center/cover;
   color: white;
   background-blend-mode: multiply;
   font-size: 1.5em;
@@ -498,7 +499,7 @@ header::before {
 }
 
 .about-me .image::before {
-  background-image: url(../../img/documento.png);
+  background-image: url(../img/documento.png);
 }
 
 .course {
@@ -521,6 +522,7 @@ header::before {
   color: white;
   background-color: #21364f;
   width: fit-content;
+  width: -moz-fit-content;
   font-family: var(--regular-font);
 }
 
@@ -716,15 +718,15 @@ header::before {
 }
 
 .email .image::before {
-  background-image: url(../../img/nuevo-sobre-de-correo-electronico.png);
+  background-image: url(../img/nuevo-sobre-de-correo-electronico.png);
 }
 
 .number .image::before {
-  background-image: url(../../img/llamada-telefonica.png);
+  background-image: url(../img/llamada-telefonica.png);
 }
 
 .address .image::before {
-  background-image: url(../../img/direccion.png);
+  background-image: url(../img/direccion.png);
 }
 
 .media-logos {
