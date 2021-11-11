@@ -23,9 +23,9 @@
         }
     } 
     @else{
-        @error "EL valor ingresado no corresponde a un número."
+        @error "EL valor ingresado no corresponde a un número.";
     }
-};
+}
 
 @mixin fluid-typography($min-width, $max-width, $min-font, $max-font){
     font-size: #{$min-font};
@@ -37,7 +37,7 @@
     @include media-quarie($max-width){
         font-size: #{$max-font};
     }
-};
+}
 
 @mixin loader-border($percentage, $border-size){
     @if type-of($percentage) == number and unitless($percentage){
@@ -68,5 +68,35 @@
     }
     @else{
         @error "El valor ingresado no corresponde a un número o tiene unidad.";
+    }
+}
+
+@mixin responsive-ratio($width, $height, $element){
+    @if (type-of($width) == number and $width > 0 and unitless($width)){
+        @if (type-of($height) == number and $height > 0 and unitless($height)){
+            display: grid;
+            grid-template-columns: repeat(#{$width}, 1fr);
+            grid-template-rows: repeat(#{$height}, 1fr);
+            position: relative;
+            margin-bottom: $margin-bottom;
+
+            &::before{
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+            }
+
+            #{$element}{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        @else{
+            @error "El segundo valor ingresado debe ser un número, mayor a 0 y no tener unidad";
+        }
+    }
+    @else{
+        @error "El primer valor ingresado debe ser un número, mayor a 0 y no tener unidad";
     }
 }
