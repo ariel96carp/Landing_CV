@@ -4,8 +4,13 @@ footer{
     padding: 1em 0;
 
     p{
+        width: -moz-fit-content;
         width: fit-content;
         margin: 0;
         margin-left: auto;
+    }
+
+    .name{
+        color: hsl(33, 98, 51);
     }
 }

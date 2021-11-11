@@ -502,9 +502,19 @@ header::before {
   background-image: url(../img/documento.png);
 }
 
+.information {
+  background: white;
+}
+
+@media screen and (min-width: 40rem) {
+  .information {
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+  }
+}
+
 .course {
   padding: .5em;
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
 }
 
@@ -521,8 +531,8 @@ header::before {
   padding: .5em .75em;
   color: white;
   background-color: #21364f;
-  width: fit-content;
   width: -moz-fit-content;
+  width: fit-content;
   font-family: var(--regular-font);
 }
 
@@ -543,6 +553,7 @@ header::before {
 }
 
 .skill {
+  width: -moz-fit-content;
   width: fit-content;
   font-family: var(--regular-font);
   opacity: 0;
@@ -697,18 +708,18 @@ header::before {
   margin-top: var(--title-margin);
 }
 
-.title:nth-of-type(-n+5) {
+.title:nth-of-type(-n+6) {
   margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 40rem) {
-  .title:nth-of-type(-n+5) {
+  .title:nth-of-type(-n+6) {
     margin-bottom: 2rem;
   }
 }
 
 @media screen and (min-width: 64rem) {
-  .title:nth-of-type(-n+5) {
+  .title:nth-of-type(-n+6) {
     margin-bottom: 2.5rem;
   }
 }
@@ -729,6 +740,26 @@ header::before {
   background-image: url(../img/direccion.png);
 }
 
+.map-container {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.map-container::before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.map-container iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .media-logos {
   display: flex;
   gap: .5rem;
@@ -745,9 +776,14 @@ footer {
 }
 
 footer p {
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0;
   margin-left: auto;
+}
+
+footer .name {
+  color: #fd8e08;
 }
 
 html {

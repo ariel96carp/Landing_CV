@@ -20,9 +20,17 @@
 }
 
 // SECCION "FORMACION"
+.information{
+    background: white;
+
+    @include media-quarie(medium){
+        background: linear-gradient(to right, #ece9e6, #ffffff);
+    }
+}
+
 .course{
     padding: .5em;
-    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
 
     &:nth-of-type(-n+6){
@@ -39,8 +47,8 @@
             padding: .5em .75em;
             color: white;
             background-color: map-get($colors, primary-color);
-            width: fit-content;
             width: -moz-fit-content;
+            width: fit-content;
             font-family: var(--regular-font);
         }
     }
@@ -62,6 +70,7 @@
 }
 
 .skill{
+    width: -moz-fit-content;
     width: fit-content;
     font-family: var(--regular-font);
     opacity: 0;
@@ -129,6 +138,8 @@
 }
 
 // SECCION "CONTACTO"
+$margin-bottom: 1.5rem; // SEPARADOR DE LOS ELEMENTOS (".TITLE") PERTENECIENTES A LA SECCION "CONTACTO"
+
 .contact{
     color: white;
     background-color: map-get($colors, secondary-color);
@@ -158,8 +169,8 @@
         
     }
 
-    &:nth-of-type(-n+5){
-        margin-bottom: 1.5rem;
+    &:nth-of-type(-n+6){
+        margin-bottom: $margin-bottom;
 
         @include media-quarie(medium){
             margin-bottom: 2rem;
@@ -192,6 +203,26 @@
                 background-image: url(../img/direccion.png);
             }
         }
+    }
+}
+
+.map-container{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    position: relative;
+    margin-bottom: $margin-bottom;
+
+    &::before{
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    iframe{
+        position: absolute;
+        width: 100%;
+        height: 100%;
     }
 }
 
