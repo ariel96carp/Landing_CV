@@ -30,5 +30,6 @@ addEventListener("DOMContentLoaded", () => {
     const bannerDescription = banner.querySelector(" p")
     setTimeout(() => {
         bannerDescription.style.opacity = 1
+        bannerDescription.style.transition = "opacity 2s"
     }, 2000)
 })

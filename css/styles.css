@@ -464,7 +464,6 @@ header::before {
 
 .main-banner p {
   opacity: 0;
-  transition: opacity 2s;
 }
 
 @keyframes show-title {
