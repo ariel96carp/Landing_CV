@@ -463,7 +463,8 @@ header::before {
 }
 
 .main-banner p {
-  animation: show-description 4s 1;
+  opacity: 0;
+  transition: opacity 2s;
 }
 
 @keyframes show-title {
@@ -472,15 +473,6 @@ header::before {
   }
   to {
     transform: translateX(0);
-  }
-}
-
-@keyframes show-description {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 

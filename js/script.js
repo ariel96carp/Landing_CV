@@ -1,4 +1,5 @@
 addEventListener("DOMContentLoaded", () => {
+    // CSSDOM (HABILIDADES - ANIMACION)
     const element = document.querySelector(".skills")
     let screenHeight = window.innerHeight / 1.7
     let elementTop = null
@@ -23,4 +24,11 @@ addEventListener("DOMContentLoaded", () => {
             }
         }
     })
+
+    // CSSDOM (DESCRIPCION DEL BANNER - ANIMACION)
+    const banner = document.querySelector(".main-banner")
+    const bannerDescription = banner.querySelector(" p")
+    setTimeout(() => {
+        bannerDescription.style.opacity = 1
+    }, 2000)
 })
